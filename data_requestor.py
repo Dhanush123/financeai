@@ -23,5 +23,8 @@ def extract_date_return(stock_data):
 	return {date: stock_data_for_day['level'] for date, stock_data_for_day in stock_data['returnsMap'].items()}
 
 
-
-print(request_stock_data(['AAPL', 'MSFT']))
+tech_stocks = ['AAPL', 'MSFT', 'GOOGL']
+airline_stocks = ['AAL', 'DAL', 'LUV']
+misc_stocks = ['WFC', 'CVS', 'JNJ']
+df = request_stock_data(tech_stocks + airline_stocks + misc_stocks)
+df.to_csv('stocks.csv')
